@@ -1,4 +1,4 @@
-# Amsterdam Life Homes — Website Design System v3
+# Amsterdam Life Homes: Website Design System v3
 ### "The Quiet System" (July 2026, design option 2c)
 Chosen after the co-founder review of the Warm Paper site: the blog, the heroes, the top menu, and the footer were approved; everything between hero and footer moves to the restraint of this system (source mockup: `Website/ALH Design System 2c.dc.html`, produced in Claude Design; direction reference: lokersrealestate.nl). Supersedes v2 "Warm Paper" for BODY sections only. The v2 layer remains in `renting.module.css` above the quiet override layer for reference; the quiet layer wins by cascade.
 
