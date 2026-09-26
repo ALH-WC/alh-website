@@ -1,7 +1,7 @@
 // The client-employer logos (client-supplied SVGs, Aug 2026), rendered
-// solid black via CSS grayscale + brightness(0) (feedback Sept 2026; the
+// in one deep sand #A89679 via a CSS filter chain (feedback Sept 2026; the
 // knockout details in ING and the UN emblem still read). Reddit is recolored
-// black in its file and rendered raw so its white face survives. `h` is the optical
+// #A89679 in its file and rendered raw so its white face survives. `h` is the optical
 // height in px: wordmark-only logos need more height than icon-plus-text
 // logos to LOOK the same size.
 export interface EmployerLogo { file: string; name: string; h: number; raw?: boolean }
