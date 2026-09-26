@@ -606,7 +606,7 @@
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marq 26s linear infinite;
+  animation: marq 37s linear infinite;
 }
 @keyframes marq {
   to {
@@ -2189,6 +2189,22 @@
   }
 }
 
+/* One H1 level on every hero (feedback Sept 2026): whatever sits under
+   the H1 (a sub, or the home page's single button) gets the same fixed
+   box, so a shorter sub never drops the H1 below the renting page's.
+   Desktop: the three-line sub. Phones: the longest wrapped sub. */
+.heroIn h1 + p,
+.heroIn h1 + .heroBtns {
+  min-height: 87px;
+  align-items: flex-start;
+}
+@media (max-width: 700px) {
+  .heroIn h1 + p,
+  .heroIn h1 + .heroBtns {
+    min-height: 165px;
+  }
+}
+
 /* ============================================================
    THE QUIET SYSTEM (design option 2c, July 2026)
    Applies ONLY between hero and footer. The nav, the heroes
@@ -3255,12 +3271,11 @@
   overflow: visible;
 }
 
-/* employer logos: one quiet tint, uniform height */
+/* employer logos: all black (feedback Sept 2026), uniform height */
 .logoImg {
   width: auto;
   display: block;
-  filter: grayscale(1) brightness(0.28);
-  opacity: 0.78;
+  filter: grayscale(1) brightness(0);
 }
 @media (max-width: 700px) {
   .logoImg {

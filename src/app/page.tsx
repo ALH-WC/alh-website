@@ -118,7 +118,7 @@ export default function HomePage() {
         </div>
         <div className={styles.qPhoto}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/home/about.webp" alt="The Amsterdam Life Homes founders on a bench in Amsterdam" />
+          <img src="/home/about.webp" alt="The Amsterdam Life Homes founders on the stoop of an Amsterdam canal house" />
         </div>
       </div>
 
