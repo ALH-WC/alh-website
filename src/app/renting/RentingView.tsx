@@ -15,8 +15,7 @@ import { useLeadSubmit } from '../../components/service/leadForm';
 // "About us" is still a section on the live Framer homepage; everything else
 // is served by this app.
 const NAV_LINKS = [
-  { href: '/renting', label: 'Renting', internal: true },
-  { href: '/renting-2', label: 'Renting 2', internal: true },
+  { href: '/renting', label: 'Renting', current: true, internal: true },
   { href: '/buying', label: 'Buying', internal: true },
   { href: '/letting', label: 'Letting', internal: true },
   { href: '/b2b', label: 'Corporate', internal: true },
@@ -32,11 +31,7 @@ const RENTING_REVIEWS = ['Sally', 'Chad', 'Bene'];
 // narrative + three cards, three review cells, FAQ rows (one on sand),
 // contact split, other services. The nav, hero, stats pile, drawer,
 // pop-up, and footer are the approved designs and stay untouched.
-// `blend3` renders the comparison page /renting-2: the same content in design
-// blend 3 (cream bookends, one italic accent, a pull quote, calmer rhythm).
-export default function RentingView({ variant = 'current' }: { variant?: 'current' | 'blend3' } = {}) {
-  const b3 = variant === 'blend3';
-  const here = b3 ? '/renting-2' : '/renting';
+export default function RentingView() {
   const [navHide, setNavHide] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [navSolid, setNavSolid] = useState(false);
@@ -80,7 +75,7 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
     .filter((r): r is (typeof REVIEWS)[number] => Boolean(r));
 
   return (
-    <div className={`${styles.page}${b3 ? ` ${styles.b3}` : ''}`}>
+    <div className={styles.page}>
       <nav
         className={`${styles.nav}${navHide ? ` ${styles.navHide}` : ''}${navSolid ? ` ${styles.navSolid}` : ''}`}
         aria-label="Primary"
@@ -89,9 +84,9 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
         <div className={styles.navLinks}>
           {NAV_LINKS.map((l) =>
             l.internal ? (
-              <Link key={l.href} href={l.href} className={l.href === here ? styles.cur : undefined}>{l.label}</Link>
+              <Link key={l.href} href={l.href} className={l.current ? styles.cur : undefined}>{l.label}</Link>
             ) : (
-              <a key={l.href} href={`https://amsterdamlifehomes.com${l.href}`} className={l.href === here ? styles.cur : undefined}>{l.label}</a>
+              <a key={l.href} href={`https://amsterdamlifehomes.com${l.href}`} className={l.current ? styles.cur : undefined}>{l.label}</a>
             ),
           )}
         </div>
@@ -148,9 +143,9 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
       </div>
 
       {/* POSITIONING */}
-      <div className={`${styles.qIntro}${b3 ? ` ${styles.b3Band}` : ''}`} style={{ paddingBottom: b3 ? undefined : 170 }}>
+      <div className={styles.qIntro} style={{ paddingBottom: 170 }}>
         <span className={styles.eyebrow}>Renting in Amsterdam</span>
-        <h2 className={`${styles.qT} ${styles.qTBig} ${styles.qStmtT}`}>Amsterdam&apos;s {b3 ? <em className={styles.b3It}>boutique</em> : 'boutique'} housing agency,<br />run by local expats.</h2>
+        <h2 className={`${styles.qT} ${styles.qTBig} ${styles.qStmtT}`}>Amsterdam&apos;s boutique housing agency,<br />run by local expats.</h2>
         <p className={styles.qDek} style={{ maxWidth: '52ch', fontSize: 17 }}>We have been in your shoes, we know what you are looking for, and we simply treat you the way we want to be treated. We search, view, and negotiate for you, until the keys are in your hand.</p>
         <a className={styles.qLink} href={INTAKE_URL} target="_blank" rel="noreferrer" style={{ marginTop: 20 }}>Schedule a free video call <span className={styles.ar}>&rarr;</span></a>
       </div>
@@ -202,7 +197,6 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
       <div className={styles.qIntro}>
         <span className={styles.eyebrow}>Abroad or already here</span>
         <h2 className={styles.qT}>We can help you, wherever you are right now</h2>
-        {b3 ? <p className={styles.b3Quote}>&ldquo;We come to every single viewing with you, ask the questions you would not think of, and tell you honestly whether a place is worth it.&rdquo;</p> : null}
       </div>
       <div className={styles.qCells2}>
         <div className={styles.qCell}>
@@ -234,7 +228,7 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
                 <span className={styles.qStepT}>{s.title}</span>
                 <p>{s.body}</p>
                 {s.formLink ? <a className={`${styles.qLink} ${styles.qLinkSm}`} href="#contact" style={{ marginTop: 4 }}>Go to the form <span className={styles.ar}>&rarr;</span></a> : null}
-                {s.note ? <span className={styles.qStepNote}>{b3 ? s.note.replace('Free, 30 minutes', 'Complimentary, 30 minutes') : s.note}</span> : null}
+                {s.note ? <span className={styles.qStepNote}>{s.note}</span> : null}
               </div>
             </div>
           ))}
@@ -263,7 +257,7 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
       </div>
 
       {/* REVIEWS */}
-      <div className={`${styles.qIntroRow}${b3 ? ` ${styles.b3Band}` : ''}`} id="reviews">
+      <div className={styles.qIntroRow} id="reviews">
         <div className={styles.qIntroTxt}>
           <span className={styles.eyebrow}>Google reviews</span>
           <h2 className={styles.qT}>Do not just take our word for it</h2>
@@ -271,7 +265,7 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
         </div>
         <Link className={`${styles.qLink} ${styles.qLinkSm}`} href="/reviews">Read all our reviews <span className={styles.ar}>&rarr;</span></Link>
       </div>
-      <div className={`${styles.rgrid}${b3 ? ` ${styles.b3Band}` : ''}`} style={{ borderTop: '1px solid #EAE7E1', borderBottom: '1px solid #EAE7E1' }}>
+      <div className={styles.rgrid} style={{ borderTop: '1px solid #EAE7E1', borderBottom: '1px solid #EAE7E1' }}>
         {cells.map((r) => (
           <div className={styles.rev} key={r.who} style={{ border: 0, borderRight: '1px solid #EAE7E1' }}>
             <q>{r.quote}</q>
@@ -299,7 +293,7 @@ export default function RentingView({ variant = 'current' }: { variant?: 'curren
       </div>
 
       {/* CONTACT */}
-      <div className={`${styles.qContact}${b3 ? ` ${styles.b3Band}` : ''}`} id="contact" style={{ borderTop: 0 }}>
+      <div className={styles.qContact} id="contact" style={{ borderTop: 0 }}>
         <div className={styles.qConL}>
           <span className={styles.eyebrow}>Get in touch</span>
           <h2 className={styles.qT}>Your home in Amsterdam<br />starts here</h2>

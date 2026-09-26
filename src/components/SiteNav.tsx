@@ -12,7 +12,6 @@ const INTAKE_URL = 'https://cal.com/amsterdam-life-homes/intake';
 // Reconstructed from the ALH Framer "Navigation" component.
 const LINKS = [
   { href: '/renting', label: 'Renting' },
-  { href: '/renting-2', label: 'Renting 2' },
   { href: '/buying', label: 'Buying' },
   { href: '/letting', label: 'Letting' },
   { href: '/b2b', label: 'Corporate' },
