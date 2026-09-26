@@ -13,7 +13,6 @@ import styles from '../../app/renting/renting.module.css';
 // render as children between nav and footer.
 const NAV_LINKS = [
   { href: '/renting', label: 'Renting', internal: true },
-  { href: '/renting-2', label: 'Renting 2', internal: true },
   { href: '/buying', label: 'Buying', internal: true },
   { href: '/letting', label: 'Letting', internal: true },
   { href: '/b2b', label: 'Corporate', internal: true },
