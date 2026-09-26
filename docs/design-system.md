@@ -9,8 +9,8 @@ Chosen after the co-founder review of the Warm Paper site: the blog, the heroes,
 ## 0. Keeping this document alive (meta-rule)
 
 Documentation is part of every change, not a separate task. Whenever a change ships that adds, alters, or retires anything this document describes (a token, a component, a rule, a page recipe, a convention, an animation, an asset system), the SAME work session updates:
-1. **This document** at `Website/ALH-Design-System-v2.md` (the master), AND
-2. **its mirror** at `alh/docs/design-system.md` in the repo (copy the master over it, same commit as the code), AND
+1. **This document**, `docs/design-system.md` in the alh-website repo, in the SAME commit as the code. It is the one and only master (since 2026-09-26): there is no mirror and no desktop copy, so local and cloud sessions always read the same file, AND
+2. nothing else: the old desktop file `Website/ALH-Design-System-v2.md` is retired and only points here, AND
 3. **`alh/CLAUDE.md`** when the environment or working agreements changed, AND
 4. **the Asana task** (checkbox + Status column + completion comment), AND
 5. **Claude's project memory** when a standing decision was made.
