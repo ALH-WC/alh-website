@@ -3268,3 +3268,47 @@
     transform-origin: left center;
   }
 }
+
+
+/* ---- Blend 3 (comparison page /renting-2, Sept 2026): Lokers keeps the
+   bones, The Property Agency warms the moments that matter. Scoped to .b3 so
+   /renting is untouched. ---- */
+.b3 {
+  --b3cream: #fbf8f2;
+}
+.b3 .qIntro {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.b3 .qIntroRow {
+  padding-top: 100px;
+}
+.b3Band {
+  background: var(--b3cream);
+}
+.b3 .rgrid.b3Band .rev {
+  background: var(--b3cream);
+}
+.b3It {
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+.b3Quote {
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: 26px;
+  line-height: 1.28;
+  color: #241d16;
+  max-width: 34ch;
+  margin-top: 26px;
+}
+@media (max-width: 700px) {
+  .b3 .qIntro {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .b3Quote {
+    font-size: 22px;
+  }
+}
