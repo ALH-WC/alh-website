@@ -158,7 +158,11 @@ export default function HomePage() {
           <h2 className={styles.qT}>Do not just take our word for it</h2>
           <p className={styles.qDek}>The true measure of our work is what our clients say afterwards.<br />85% of our business comes from referrals.</p>
         </div>
-        <Link className={`${styles.qLink} ${styles.qLinkSm}`} href="/reviews">Read all our reviews <span className={styles.ar}>&rarr;</span></Link>
+        {/* the employer logos fill the intro row's right side (feedback Sept 2026) */}
+        <div className={styles.qRevSide}>
+          <LogoMarquee label="Our clients work at companies like" stacked />
+          <Link className={`${styles.qLink} ${styles.qLinkSm}`} href="/reviews">Read all our reviews <span className={styles.ar}>&rarr;</span></Link>
+        </div>
       </div>
       <div className={styles.rgrid} style={{ borderTop: '1px solid #EAE7E1', borderBottom: '1px solid #EAE7E1' }}>
         {leads.map((r) => (
@@ -171,19 +175,15 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* CLOSING SPLIT: the invitation left, the employer logos right
-          (feedback Sept 2026: one band instead of two, less vertical air) */}
-      <div className={styles.qCloseSplit}>
-        <div className={styles.qClose}>
-          <span className={styles.eyebrow}>Ready to start?</span>
-          <h2 className={styles.qCloseT}>It starts<br />with a video call</h2>
-          <p>Book a free 30 minute video call with us. Whether you are searching for a home, letting your property, buying, or relocating a team: you tell us what you need, we tell you how everything works and what you can expect. No commitment, no sales pitch, just a conversation.</p>
-          <div className={styles.qCloseRow}>
-            <a className={styles.qLink} href={INTAKE_URL} target="_blank" rel="noreferrer">Schedule a free video call <span className={styles.ar}>&rarr;</span></a>
-          </div>
-          <div className={styles.qFine}>Free. Takes 30 minutes. And will give you all the clarity you were looking for.</div>
+      {/* CLOSING INVITATION */}
+      <div className={styles.qClose} style={{ borderTop: '1px solid #EAE7E1' }}>
+        <span className={styles.eyebrow}>Ready to start?</span>
+        <h2 className={styles.qCloseT}>It starts<br />with a video call</h2>
+        <p>Book a free 30 minute video call with us. Whether you are searching for a home, letting your property, buying, or relocating a team: you tell us what you need, we tell you how everything works and what you can expect. No commitment, no sales pitch, just a conversation.</p>
+        <div className={styles.qCloseRow}>
+          <a className={styles.qLink} href={INTAKE_URL} target="_blank" rel="noreferrer">Schedule a free video call <span className={styles.ar}>&rarr;</span></a>
         </div>
-        <LogoMarquee label="Our clients work at companies like" stacked />
+        <div className={styles.qFine}>Free. Takes 30 minutes. And will give you all the clarity you were looking for.</div>
       </div>
 
     </ServiceShell>

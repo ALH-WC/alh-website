@@ -3180,61 +3180,72 @@
   }
 }
 
-/* homepage closing split (feedback Sept 2026): the invitation left, the
-   employer logos right behind one hairline, in two counter-running rows
-   that slide out from under the hairline and off the right page edge */
-.qCloseSplit {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  border-top: 1px solid #eae7e1;
+/* homepage reviews intro row (feedback Sept 2026): the employer logos fill
+   the right side above "Read all our reviews", in two counter-running rows
+   that clip hard on the left and run off the right page edge. The side
+   stretches to the row: its label shares the top line with the left
+   eyebrow, the link the bottom line with the dek. */
+.qRevSide {
+  flex: 0 1 50%;
+  align-self: stretch;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 44px;
+  margin-right: -48px;
 }
-.qCloseSplit .qClose {
-  border-top: 0;
+.qRevSide > a {
+  margin-right: 48px;
 }
 .qEmployersStack {
-  border-left: 1px solid #eae7e1;
-  padding: 100px 0 110px;
+  padding: 0;
   flex-direction: column;
   align-items: stretch;
-  justify-content: center;
-  gap: 44px;
+  gap: 26px;
+  width: 100%;
   min-width: 0;
-}
-.qEmployersStack > .eyebrow {
-  padding-left: 64px;
 }
 .qMarqRows {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
 }
 .qMarqRows .marq {
   flex: none;
   width: 100%;
 }
+/* under 1100px the side is too narrow: it stacks under the intro text */
 @media (max-width: 1100px) {
-  .qCloseSplit {
-    grid-template-columns: 1fr;
+  .qIntroRow:has(.qRevSide) {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .qEmployersStack {
-    border-left: 0;
-    border-top: 1px solid #eae7e1;
-    padding: 64px 0 72px;
+  .qRevSide {
+    flex: none;
+    width: calc(100% + 40px);
+    margin-right: -40px;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 18px;
   }
-  .qEmployersStack > .eyebrow {
-    padding-left: 48px;
+  .qRevSide > a {
+    margin-right: 0;
   }
 }
 @media (max-width: 700px) {
-  .qEmployersStack {
-    padding: 56px 0 64px;
-    gap: 30px;
+  .qRevSide {
+    width: calc(100% + 22px);
+    margin-right: -22px;
+    gap: 34px;
   }
-  .qEmployersStack > .eyebrow {
-    padding-left: 22px;
+  .qEmployersStack {
+    padding: 0;
+    gap: 22px;
   }
   .qMarqRows {
-    gap: 26px;
+    gap: 18px;
   }
 }
 
