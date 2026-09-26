@@ -11,20 +11,39 @@ import { EMPLOYER_LOGOS } from '../../lib/logos';
 
 // The one employers band: the calibrated rotating logo marquee, identical on
 // every page that shows client employers.
-export function LogoMarquee({ label }: { label: string }) {
+function MarqueeTrack({ logos, reverse }: { logos: typeof EMPLOYER_LOGOS; reverse?: boolean }) {
+  // Duration scales with the logo count so every track moves at the same
+  // speed as the full 18-logo row (37s).
+  const dur = `${(37 * logos.length) / EMPLOYER_LOGOS.length}s`;
   return (
-    <div className={styles.qEmployers}>
-      <span className={styles.eyebrow}>{label}</span>
-      <div className={styles.marq}>
-        <div className={styles.mtrack}>
-          {[0, 1].map((half) => (
-            <div className={styles.qMarqWords} key={half} aria-hidden={half === 1}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              {EMPLOYER_LOGOS.map((l) => <img className={styles.logoImg} src={l.file} alt={l.name} style={{ height: l.h, filter: l.raw ? 'none' : undefined }} key={l.name} />)}
-            </div>
-          ))}
-        </div>
+    <div className={styles.marq}>
+      <div className={styles.mtrack} style={{ animationDuration: dur, animationDirection: reverse ? 'reverse' : undefined }}>
+        {[0, 1].map((half) => (
+          <div className={styles.qMarqWords} key={half} aria-hidden={half === 1}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {logos.map((l) => <img className={styles.logoImg} src={l.file} alt={l.name} style={{ height: l.h, filter: l.raw ? 'none' : undefined }} key={l.name} />)}
+          </div>
+        ))}
       </div>
+    </div>
+  );
+}
+
+// `stacked`: the homepage's closing-split variant, label on top and the
+// logos in two rows running in opposite directions.
+export function LogoMarquee({ label, stacked }: { label: string; stacked?: boolean }) {
+  const half = Math.ceil(EMPLOYER_LOGOS.length / 2);
+  return (
+    <div className={`${styles.qEmployers} ${stacked ? styles.qEmployersStack : ''}`}>
+      <span className={styles.eyebrow}>{label}</span>
+      {stacked ? (
+        <div className={styles.qMarqRows}>
+          <MarqueeTrack logos={EMPLOYER_LOGOS.slice(0, half)} />
+          <MarqueeTrack logos={EMPLOYER_LOGOS.slice(half)} reverse />
+        </div>
+      ) : (
+        <MarqueeTrack logos={EMPLOYER_LOGOS} />
+      )}
     </div>
   );
 }

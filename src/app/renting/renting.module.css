@@ -3180,6 +3180,64 @@
   }
 }
 
+/* homepage closing split (feedback Sept 2026): the invitation left, the
+   employer logos right behind one hairline, in two counter-running rows
+   that slide out from under the hairline and off the right page edge */
+.qCloseSplit {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  border-top: 1px solid #eae7e1;
+}
+.qCloseSplit .qClose {
+  border-top: 0;
+}
+.qEmployersStack {
+  border-left: 1px solid #eae7e1;
+  padding: 100px 0 110px;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 44px;
+  min-width: 0;
+}
+.qEmployersStack > .eyebrow {
+  padding-left: 64px;
+}
+.qMarqRows {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.qMarqRows .marq {
+  flex: none;
+  width: 100%;
+}
+@media (max-width: 1100px) {
+  .qCloseSplit {
+    grid-template-columns: 1fr;
+  }
+  .qEmployersStack {
+    border-left: 0;
+    border-top: 1px solid #eae7e1;
+    padding: 64px 0 72px;
+  }
+  .qEmployersStack > .eyebrow {
+    padding-left: 48px;
+  }
+}
+@media (max-width: 700px) {
+  .qEmployersStack {
+    padding: 56px 0 64px;
+    gap: 30px;
+  }
+  .qEmployersStack > .eyebrow {
+    padding-left: 22px;
+  }
+  .qMarqRows {
+    gap: 26px;
+  }
+}
+
 /* form status (the wired lead pipeline) */
 .sentNote {
   margin-top: 18px;
