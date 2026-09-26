@@ -3271,11 +3271,13 @@
   overflow: visible;
 }
 
-/* employer logos: all black (feedback Sept 2026), uniform height */
+/* employer logos: one deep sand #A89679 (feedback Sept 2026: a darker
+   version of the sand #EAE2D3), uniform height. The chain flattens each
+   logo to black, then tints black to exactly #A89679. */
 .logoImg {
   width: auto;
   display: block;
-  filter: grayscale(1) brightness(0);
+  filter: grayscale(1) brightness(0) invert(59%) sepia(15%) saturate(540%) hue-rotate(359deg) brightness(98%) contrast(96%);
 }
 @media (max-width: 700px) {
   .logoImg {
