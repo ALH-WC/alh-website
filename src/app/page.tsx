@@ -171,17 +171,19 @@ export default function HomePage() {
         ))}
       </div>
 
-      <LogoMarquee label="Our clients work at companies like" />
-
-      {/* CLOSING INVITATION */}
-      <div className={styles.qClose} style={{ borderTop: '1px solid #EAE7E1' }}>
-        <span className={styles.eyebrow}>Ready to start?</span>
-        <h2 className={styles.qCloseT}>It starts<br />with a video call</h2>
-        <p>Book a free 30 minute video call with us. Whether you are searching for a home, letting your property, buying, or relocating a team: you tell us what you need, we tell you how everything works and what you can expect. No commitment, no sales pitch, just a conversation.</p>
-        <div className={styles.qCloseRow}>
-          <a className={styles.qLink} href={INTAKE_URL} target="_blank" rel="noreferrer">Schedule a free video call <span className={styles.ar}>&rarr;</span></a>
+      {/* CLOSING SPLIT: the invitation left, the employer logos right
+          (feedback Sept 2026: one band instead of two, less vertical air) */}
+      <div className={styles.qCloseSplit}>
+        <div className={styles.qClose}>
+          <span className={styles.eyebrow}>Ready to start?</span>
+          <h2 className={styles.qCloseT}>It starts<br />with a video call</h2>
+          <p>Book a free 30 minute video call with us. Whether you are searching for a home, letting your property, buying, or relocating a team: you tell us what you need, we tell you how everything works and what you can expect. No commitment, no sales pitch, just a conversation.</p>
+          <div className={styles.qCloseRow}>
+            <a className={styles.qLink} href={INTAKE_URL} target="_blank" rel="noreferrer">Schedule a free video call <span className={styles.ar}>&rarr;</span></a>
+          </div>
+          <div className={styles.qFine}>Free. Takes 30 minutes. And will give you all the clarity you were looking for.</div>
         </div>
-        <div className={styles.qFine}>Free. Takes 30 minutes. And will give you all the clarity you were looking for.</div>
+        <LogoMarquee label="Our clients work at companies like" stacked />
       </div>
 
     </ServiceShell>
