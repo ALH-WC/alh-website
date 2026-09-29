@@ -18,7 +18,7 @@ Stand van zaken op 29 september 2026. Lees daarna eerst `CLAUDE.md` en `docs/des
 | #122 | De About-foto is aan de onderkant bijgesneden (bronbestand 2000x1230). |
 | #123 | De carrousel stond kort rechts naast "Ready to start?". Vervangen door #124. |
 | #124 | De carrousel staat nu rechts in de intro-rij van de reviews op de homepage, in twee rijen van negen logo's die tegen elkaar in lopen, met 24px tussen de rijen. Het "Ready to start?"-blok is weer volle breedte. |
-| #125, #126 | CTA-balk (pop-up rechtsonder): afgeronde hoeken (10px op de balk, 6px op de knoppen), donker zand-brons `#6E5A43` en geen binnenlijn. Deze PR's zijn in een andere sessie gemaakt. |
+| #125, #126 | CTA-balk (pop-up rechtsonder): afgeronde hoeken (10px op de balk, 6px op de knoppen), melkchocolade-brons `#75563C` (was zand-brons `#6E5A43`) en geen binnenlijn. Deze PR's zijn in een andere sessie gemaakt. |
 
 ## Beslissingen (staan ook in de design-doc)
 

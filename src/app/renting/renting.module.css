@@ -606,7 +606,7 @@
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marq 37s linear infinite;
+  animation: marq 49s linear infinite;
 }
 @keyframes marq {
   to {
@@ -3361,9 +3361,9 @@
    the curves nest. Nothing else in the Quiet System is rounded. */
 .ctapop {
   border-radius: 10px;
-  /* dark sand-bronze: warmer than the espresso it replaced (client call,
-     Sept 2026); no border or inner line */
-  background: #6e5a43;
+  /* milk-chocolate bronze: warmer than the espresso it replaced (client
+     call, Sept 2026); no border or inner line */
+  background: #75563c;
 }
 .ctapop .ctapopNote {
   color: var(--on-dark);
