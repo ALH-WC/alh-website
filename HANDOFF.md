@@ -1,56 +1,64 @@
-# Handoff: Amsterdam Life Homes website
+# Handoff: ALH-website
 
-Last updated: 2026-09-29. Read this with `CLAUDE.md` (rules and environment) and `docs/design-system.md` (the design, the only copy). This file is the snapshot of where things stand; it does not repeat the rules.
+Stand van zaken op 29 september 2026. Lees daarna eerst `CLAUDE.md` en `docs/design-system.md`: die twee zijn leidend. Dit bestand vat alleen samen waar we staan.
 
-## Current status
+## Huidige status
 
-**The whole marketing site is rebuilt and live on staging**, https://alh-website.vercel.app, with every page set to `noindex`. Framer still serves the public domain amsterdamlifehomes.com until the cutover.
+- **Live:** https://alh-website.vercel.app (Vercel-project `alh-website`, team `alh-wc`). Elke merge naar `main` wordt automatisch gedeployed.
+- **Branch:** `feat/cms-seo-import` is gelijk aan `main` (laatste merge: PR #126). Er is geen openstaand werk en er zijn geen open PR's.
+- **Indexering:** alle pagina's staan nog op `noindex, follow` tot de domeinoverstap naar amsterdamlifehomes.com.
+- **Feedbackronde van 26 t/m 29 september:** afgerond en live.
 
-| Page | State |
+### Wat er deze ronde is opgeleverd
+
+| PR | Wijziging |
 |---|---|
-| `/` home | Live. Brand video hero, three-stat pile, statement, about split, four service tiles, photo band with two article cells and the guide tile, three reviews, employers marquee, closing invitation. |
-| `/renting` | Live. The fullest service page: positioning, qualification gate, abroad or here, process, fee, reviews, FAQ, contact form. |
-| `/letting`, `/buying`, `/b2b` | Live, each with its own body layout from its Asana study. |
-| `/about`, `/reviews`, `/contact` | Live. |
-| `/blog` + articles | Live. Own editorial layout (approved, never restyle), Mixta + Inter fonts. Content in Sanity. |
-| `/studio` | Sanity Studio, same deployment. |
+| #120 | Hero-H1 staat op elke pagina op exact dezelfde hoogte als op /renting, op desktop en telefoon. Het lettertype was al overal gelijk. Verder: nieuwe foto in "About us" op de homepage, de logo-carrousel draait 30% langzamer (37s) en de logo's werden zwart. |
+| #121 | Logo's in de carrousel in donker zand `#A89679` in plaats van zwart. |
+| #122 | De About-foto is aan de onderkant bijgesneden (bronbestand 2000x1230). |
+| #123 | De carrousel stond kort rechts naast "Ready to start?". Vervangen door #124. |
+| #124 | De carrousel staat nu rechts in de intro-rij van de reviews op de homepage, in twee rijen van negen logo's die tegen elkaar in lopen, met 24px tussen de rijen. Het "Ready to start?"-blok is weer volle breedte. |
+| #125, #126 | CTA-balk (pop-up rechtsonder): afgeronde hoeken (10px op de balk, 6px op de knoppen), donker zand-brons `#6E5A43` en geen binnenlijn. Deze PR's zijn in een andere sessie gemaakt. |
 
-- Repo `ALH-WC/alh-website`, branch `feat/cms-seo-import`, PRs into `main`. Last merged PR: #126.
-- Design system: **the Quiet System** (v3). Refined through six client feedback rounds in August 2026 and small September changes (below).
-- Asana "ALH - Website 2.0" was cleaned on 2026-08-29: shipped cards closed, the real remaining work is listed there and below.
-- Business-level record lives in `ALH-WC/alh-hq` (`docs/state/website.md`, `docs/decisions/`). It was backfilled on 2026-09-24 and matches this file.
+## Beslissingen (staan ook in de design-doc)
 
-## Decisions (recent and standing)
+- **Altijd mergen:** PR's naar `main` direct zelf mergen na lokale controle; niet eerst vragen. Daarna wachten tot de deploy klaar is en controleren op productie.
+- **Eén H1-hoogte voor alle hero's:** wat onder de H1 staat (subtekst of knop) krijgt een vaste hoogte: 87px op desktop, 165px op telefoon. Een kortere subtekst mag de H1 nooit lager laten zakken.
+- **Logo-carrousel:**
+  - kleur donker zand `#A89679` (alleen voor de carrousel, nooit voor tekst);
+  - snelheid 37s voor de volledige rij van 18 logo's;
+  - Reddit is in het SVG-bestand zelf ingekleurd, met een wit gezichtje;
+  - de homepage gebruikt de `stacked`-variant (twee rijen, in `.qRevSide`);
+  - /b2b houdt de enkele rij.
+- **CTA-balk:** de enige afgeronde en de enige niet-espresso vlak in het systeem. Dat is een bewuste uitzondering, gekozen in het klantgesprek van september 2026.
+- **Afgewezen:** de "blend 3"-richting (/renting-2). Niet opnieuw voorstellen.
 
-- **Stay on the Quiet System.** A refinement toward lokersrealestate.nl + thepropertyagency.nl ("blend 3": cream bands, italic accent, pull quote) was built as `/renting-2` and **rejected** on 2026-09-26 (hardly any visible difference). Removed. Do not propose it again. Lesson: subtle tint and rhythm shifts do not read as a redesign to the client; any future refinement must be visibly structural.
-- **CTA bar exceptions** (the only two in the system): 10px rounded corners (6px on its buttons), and a dark sand-bronze ground `#6E5A43` instead of espresso, with **no** border or inner line. Text: "Let's talk! We respond within 24 hours." above "Fill in our form" and "Schedule a free video intake call".
-- **One design doc.** `docs/design-system.md` is the only copy since 2026-09-26; the old desktop master is a retired pointer. Cloud sessions have no project memory, so standing decisions go in the repo.
-- **Stats:** 250+ expats housed, 9+ yrs of experience, 85% from referrals, 3.5 wks average search (not on the homepage pile).
-- **CTA labels are fixed:** "Schedule a free video call" on heroes and closings, "Schedule a free video intake call" in the CTA bar and drawer. The response promise is 24 hours.
-- **Reviews:** four carry real client meta (Elora & Garrett, Melissa & Chad, Stephanie & Tomas, Sally, Paul & Amy); the rest show placeholder tags. Review dates are never shown.
-- **Employers marquee:** 18 real client-supplied logos, one shared `LogoMarquee`, per-logo optical heights in `src/lib/logos.ts`.
-- **Brand one-pager for PDFs:** `Desktop\Claude\Amsterdam Life Homes\ALH-Brand-Essentials.pdf` (logo, colours with hex/RGB/CMYK, fonts, layout, voice, CTA). Rebuild it if the system changes.
+## Openstaande taken
 
-## Open tasks
+1. **Asana bijwerken:** de wijzigingen van deze feedbackronde zijn nog niet in Asana gezet ("ALH - Website 2.0"), omdat er geen taak voor genoemd was. Vraag welke taak het is en zet daar de checkbox, de Status-kolom en een afrondingscommentaar.
+2. **Corporate-hero op telefoon:** "Housing your expat employees" loopt op telefoons over 4 regels, terwijl de vaste regeleinden er 3 voorschrijven. Dit was al zo vóór deze ronde. De H1 blijft wel netjes uitgelijnd.
+3. **Kleine onjuistheden in de design-doc:**
+   - sectie 8 (de homepage-opbouw) noemt de carrousel nog als losse rij;
+   - sectie 7 geeft voor de home-hero andere regeleinden dan sectie 4.2 en de code.
 
-**Before the domain cutover**
-1. **Verify the lead pipeline.** Every form posts to `/api/lead` and stores a `lead` document in Sanity, but only if `SANITY_API_WRITE_TOKEN` is set in the Vercel project env. Last production test returned `stored: false`. Unverified since; check in the Vercel dashboard (the local Vercel CLI token has expired).
-2. **Cookie Settings and Privacy Policy pages** on the new site; the footer links still point to Framer.
-3. **Domain cutover** (Asana task has the full checklist): attach amsterdamlifehomes.com to the Vercel project, remove `noindex` site-wide, submit the sitemap in Search Console, 301s for any Framer paths that differ, verify share images, favicon, and leads on the real domain, retire Framer.
+   Rechttrekken bij de volgende wijziging aan die secties.
+4. **Content (blog, via Sanity):** zie `docs/content-refresh-queue.md`.
+   - Het belastingartikel en het feestdagen-2025-artikel staan op `noIndex` tot de cijfers of de opzet zijn bijgewerkt.
+   - Een aantal artikelen met gedateerde cijfers verouderen langzaam.
+5. **Placeholder-data in reviews:** alleen Elora & Garrett, Melissa & Chad, Stephanie & Tomas en Sally, Paul & Amy hebben echte klantdata. De rest wacht nog op gegevens van de klant.
+6. **Pet-FAQ:** heeft nog echte tekst nodig, want de oude site toont daar standaardtekst.
+7. **Domeinoverstap (later):**
+   - `OG_BASE` in `src/lib/og.ts` omzetten naar amsterdamlifehomes.com;
+   - de `noindex`-vlaggen overal weghalen;
+   - de canonical op de homepage bijwerken.
 
-**Waiting on Wassily**
-4. Real budget and found-in data for the remaining reviews.
-5. The real answer to the pet FAQ on `/renting` (the page shows a flagged placeholder).
-6. Approval for the Trump visa article refresh; review of the content writing standard.
+## Praktische tips voor de volgende sessie
 
-**After the cutover**
-7. One 2-week measurement pass across all pages (GA4 + Search Console).
-8. Analytics under the Cal.com epic: UTM tagging, GA4 booking events, booking flow QA.
-9. Blog BreadcrumbList schema and a crawl check of internal links.
-
-**Blog content** runs in the separate Asana project "ALH - Blog" and the scheduled pipeline; not tracked here.
-
-## Environment notes
-
-- Local sessions (desktop app, folder `Website\alh`) have `.env.local`, project memory, and network access. Cloud sessions need `alh-website.vercel.app` allowed in their network settings.
-- The portal is a separate product: repo `ALH-WC/alh-portal` (home base, no code yet), live prototype still at `Itsyouitsus/ALH-Portal`. Work on it in its own session in `Portal\alh-portal`.
+- **Screenshots:** het browserpaneel in de app tekent niet als het venster verborgen is. `shot.mjs` in de scratchpad van deze sessie stuurt Chrome headless aan (via het Chrome DevTools Protocol, met native WebSocket) en maakt zo screenshots op elke breedte. Het script is makkelijk opnieuw te maken:
+  - Chrome starten met `--headless=new --remote-debugging-port`;
+  - `Emulation.setDeviceMetricsOverride`, dan `Page.navigate`;
+  - naar het element scrollen;
+  - `Page.captureScreenshot`.
+- **Regeleinden:** verschillende bestanden gebruiken CRLF (`renting.module.css`, `logos.ts`, `page.tsx`). Scripts die bestanden bewerken moeten de bestaande regeleinden behouden, anders ontstaat er een enorme diff.
+- **Afbeeldingen:** omzetten naar webp met `sharp`, dat al in `node_modules` staat.
+- **Stijlen:** alle body-stijlen zitten in `src/app/renting/renting.module.css`. De laag "QUIET SYSTEM" staat onderaan en wint via de cascade.
