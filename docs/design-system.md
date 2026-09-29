@@ -28,10 +28,10 @@ Everything below the hero sits on white, in one editorial voice. Photography car
 ## 2. Hard rules (non-negotiable)
 
 1. **White ground below the hero.** Every body module sits on `#FFFFFF`. Paper `#F5F0E6` survives ONLY where the approved elements use it: hero text and nav items over photos, the hamburger drawer, the pop-up's cream button.
-2. **One dark.** Espresso `#241d16` is every heading, every arrow, the wordmark, and at most ONE dark band per page (b2b's quote form). The CTA bar is not espresso but dark sand-bronze #6E5A43, see rule 5.
+2. **One dark.** Espresso `#241d16` is every heading, every arrow, the wordmark, and at most ONE dark band per page (b2b's quote form). The CTA bar is not espresso but milk-chocolate bronze #75563C, see rule 5.
 3. **Bronze `#8A7250` is a label color only:** eyebrows, numerals, context lines, meta. Never body text, never headings.
 4. **Sand `#EAE2D3` appears only on the footer band and exactly one tile per grid row** (fourth service tile, middle review cell) to stop rows reading flat.
-5. **Hairline `#EAE7E1`, 1px, is the only divider.** No shadows, no border radius (ONE exception: the CTA bar, 10px on the bar and 6px on its two buttons, client call Sept 2026). The CTA bar is also the one surface that is NOT espresso: dark sand-bronze #6E5A43 with NO border or inner line, cream note line, cream filled button, cream-outlined second button, no focus rings (underlines darken to espresso instead), no gradients outside photographs.
+5. **Hairline `#EAE7E1`, 1px, is the only divider.** No shadows, no border radius (ONE exception: the CTA bar, 10px on the bar and 6px on its two buttons, client call Sept 2026). The CTA bar is also the one surface that is NOT espresso: milk-chocolate bronze #75563C with NO border or inner line, cream note line, cream filled button, cream-outlined second button, no focus rings (underlines darken to espresso instead), no gradients outside photographs.
 6. **No chips, badges, pills, bordered accent panels, or highlight blocks behind titles.**
 7. **No filled buttons below the hero.** Calls to action are text: Inter 600 espresso (primary) or bronze (secondary) with a trailing arrow. On hover ONLY the arrow moves (4px right); nothing else changes. Filled buttons survive only in the hero and the pop-up.
 8. **No plus bullets, no icons, no illustration.** Lists are plain hairline-separated lines with generous leading. Photography or nothing.
@@ -89,7 +89,7 @@ Inter never exceeds weight 600. Sentence case in all Inter copy; uppercase lives
 - CTA hover: text CTAs lift `translateY(-2px)` AND the arrow glides `translateX(4px)`, 0.25s ease; tiles lift 2px too (feedback round 1 restored the old motion).
 - Photo tile zoom: `scale(1.06)`, 0.7s `cubic-bezier(0.16,1,0.3,1)`; caption fades, ↗ fades in.
 - **The signature reveal** (guide band, blog logo): clipped window + `translateX(-100%)` slide, 0.65s `cubic-bezier(0.45,0,0.15,1)`.
-- Nav hide/show `translateY(-100%)` 0.38s; pop-up entrance opacity + 18px rise, 0.55s; marquee 37s linear (feedback Sept 2026: 30% slower than the old 26s), NEVER pauses (hover-pause removed, feedback Aug 2026).
+- Nav hide/show `translateY(-100%)` 0.38s; pop-up entrance opacity + 18px rise, 0.55s; marquee 49s linear (Sept 2026: 30% slower than the old 26s, then another 25% slower), NEVER pauses (hover-pause removed, feedback Aug 2026).
 - Tab attention (root layout): ONLY while the tab is hidden, the title crawls and the favicon cycles gold → terracotta → espresso → deep sand (`/public/fav/f0-f3.png`); both snap back on focus. Never animate the visible tab.
 
 ---
