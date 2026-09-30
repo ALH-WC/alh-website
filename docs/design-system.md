@@ -68,14 +68,14 @@ Employer logos (the marquee ONLY): deep sand `#A89679`, a darker version of the 
 | Wordmark | Mixta 400 | Header and footer only. 18-19px, uppercase, letterspaced .3em where standalone; the 23px nav logo keeps its approved form |
 | Display lines | Mixta 400 (650 for the tag-band statement) | Always uppercase for titles and statements: section titles 46px, closing statement 62px, service tiles 34px, photo captions 24-26px in white. Line-height 1.05-1.25, capped at 20-22ch |
 | Pull quotes | Mixta 400 | 26-28px / 1.25, espresso, sentence case in quotation marks |
-| Eyebrow | Inter 500 | 12px, ls .22em, uppercase, bronze. Always directly above the title |
-| Body | Inter 400 | 17px / 1.8, `#5F5A54`, max 44-52ch |
+| Eyebrow | Inter 500 | 15px, ls .14em, uppercase, bronze. Always directly above the title |
+| Body | Inter 400 | 15px / 1.8, `#5F5A54`, max 44-52ch |
 | Secondary | Inter 400 | 15px / 1.75 |
-| Meta / attribution | Inter 400-500 | 14px, `#A39889` |
-| Text CTA | Inter 600 | 17px espresso (primary) / bronze (secondary), trailing arrow; in-card links 15px 500 |
-| Form labels | Inter 600 | 11.5px, ls .18em, uppercase, espresso |
+| Meta / attribution | Inter 400-500 | 15px, `#A39889` |
+| Text CTA | Inter 600 | 15px espresso, trailing arrow |
+| Form labels | Inter 600 | 15px, uppercase, espresso |
 
-**THE SCALE IS CLOSED (Aug 2026, after the size-drift audit).** Inter exists at exactly FOUR sizes: 17px (all running text: deks, bodies, promises, intros), 15px (UI: links, buttons, inputs, footer links), 14px (meta: attributions, notes, fine print, legal), 12px (eyebrows and letterspaced labels). Mixta exists at exactly: 46px section titles (30px phones, every section, NO per-section exceptions: the mockup's 52/56/62 variants are retired), 34 tile names and photo-band titles, 30 cell subtitles, 26 review quotes, 24 photo captions (21 for long article-title captions), 22 stat numbers and step numerals, plus the hero H1 and the wordmark. Arrow glyphs (18-19px) are the only exception. Any other px value in a font-size is a bug.
+**THE SCALE IS CLOSED.** Inter exists at exactly ONE size on the company pages: **15px** (client call, 30 Sept 2026, replacing the Aug 2026 four-size scale of 17/15/14/12). Body, deks, names, meta and budget lines, eyebrows, labels, links, form labels, footer, and the small Inter sub-headings are all 15px; hierarchy comes from Mixta and from Inter weight (400/500/600), never from a second Inter size. Uppercase labels at 15px use tracking .14em. Implemented as the final "ONE Inter size" layer in renting.module.css and SiteFooter.module.css. Exceptions: the heroes (subtext, stats pile), the CTA bar, and the blog keep their approved sizes; form inputs may be 16px on phones so iOS does not zoom on focus. Mixta exists at exactly: 46px section titles (30px phones, every section, NO per-section exceptions: the mockup's 52/56/62 variants are retired), 34 tile names and photo-band titles, 30 cell subtitles, 26 review quotes, 24 photo captions (21 for long article-title captions), 22 stat numbers and step numerals, plus the hero H1 and the wordmark. Arrow glyphs (18-19px) are the only exception. Any other px value in a font-size is a bug.
 
 Inter never exceeds weight 600. Sentence case in all Inter copy; uppercase lives only in Mixta display lines, eyebrows, labels, and the wordmark.
 

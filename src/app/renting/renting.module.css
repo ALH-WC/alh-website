@@ -3374,3 +3374,28 @@
 .ctapop .pbtnAlt {
   border-color: rgba(242, 236, 225, 0.55);
 }
+
+
+/* ---- ONE Inter size (client call, 30 Sept 2026) ----
+   Every Inter text on the company pages is 15px: body, names, meta and
+   budget lines, labels, links, form labels, and the small Inter
+   sub-headings. Hierarchy comes from Mixta and from Inter weight, never
+   from a second Inter size. Excluded on purpose: the heroes (subtext and
+   stats pile) and the CTA bar, both approved components. !important is
+   used because some modules set sizes inline or with higher specificity. */
+.qCell p, .qClose p, .qConL p, .qFaqRow p, .qFeeL p, .qSplitTxt p,
+.rev p, .shead p, .tagband p, .faqrow p, .editorialCols p, .panel p,
+.cell p, .guideband p,
+.faqrow h3, .hstep h3,
+.page label, .frm label, .dform label,
+.help, .help a, .qConLines, .qConLines a, .who b, .rtags, .rtags span,
+.abroadH, .abroadP, .chk, .chkIntro, .chkItem, .cmpRow, .darkDek, .dsubmit,
+.eyebrow, .frmHint, .gin2, .glabel, .pillarN, .qDek, .qFeeQuote, .qFine,
+.qLine, .qLink, .qNum, .qStepNote, .qStepT, .rowtblV, .submit, .todo,
+.vstepNote {
+  font-size: 15px !important;
+}
+/* uppercase labels at 15px need less tracking to stay quiet */
+.eyebrow, .rtags, .qStepNote, .glabel {
+  letter-spacing: 0.14em !important;
+}
