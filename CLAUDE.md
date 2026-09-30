@@ -1,6 +1,6 @@
 # Amsterdam Life Homes website (alh-website)
 
-Next.js 15 + Sanity site serving the full ALH website: /, /renting, /buying, /letting, /b2b, /about, /reviews, /contact, and the blog at /blog. Replaces the Framer site page by page; every page ships `robots: noindex, follow` until the domain cutover, when amsterdamlifehomes.com attaches to this Vercel project and the noindex flags come off.
+Next.js 16 + Sanity 6 site (Node.js >=22.12 required, pinned in `engines`; there is no `lint` script since Next 16 removed `next lint`, use `npm run typecheck`) serving the full ALH website: /, /renting, /buying, /letting, /b2b, /about, /reviews, /contact, and the blog at /blog. Replaces the Framer site page by page; every page ships `robots: noindex, follow` until the domain cutover, when amsterdamlifehomes.com attaches to this Vercel project and the noindex flags come off.
 
 ## Environment
 - Repo: `ALH-WC/alh-website` (formerly alh-blog). Working branch `feat/cms-seo-import`, PRs to `main`, self-merge allowed.

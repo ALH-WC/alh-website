@@ -6,20 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@portabletext/react": "^3.2.0",
     "@portabletext/types": "^2.0.13",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.70.0",
-    "next": "^15.5.20",
-    "next-sanity": "^9.8.31",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sanity": "^3.70.0",
-    "styled-components": "^6.1.14"
+    "@sanity/vision": "^6.17.0",
+    "next": "^16.3.7",
+    "next-sanity": "^13.3.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^6.17.0",
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
     "@types/node": "^22.10.7",
@@ -32,5 +31,17 @@
   "allowScripts": {
     "esbuild@0.25.6": true,
     "fsevents@2.3.3": true
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "overrides": {
+    "adm-zip": "^0.6.1",
+    "js-yaml@3": "^3.15.2",
+    "smol-toml": "^1.9.0",
+    "undici@7": "^7.30.0",
+    "typeid-js": {
+      "uuid": "^11.1.1"
+    }
   }
 }

@@ -5,7 +5,7 @@ Stand van zaken op 29 september 2026. Lees daarna eerst `CLAUDE.md` en `docs/des
 ## Huidige status
 
 - **Live:** https://alh-website.vercel.app (Vercel-project `alh-website`, team `alh-wc`). Elke merge naar `main` wordt automatisch gedeployed.
-- **Branch:** `feat/cms-seo-import` is gelijk aan `main` (laatste merge: PR #129). Er is geen openstaand werk en er zijn geen open PR's.
+- **Branch:** `feat/cms-seo-import` is gelijk aan `main` (laatste merge: PR #132, de Next.js 16 / Sanity 6-upgrade). Er is geen openstaand werk en er zijn geen open PR's.
 - **Indexering:** alle pagina's staan nog op `noindex, follow` tot de domeinoverstap naar amsterdamlifehomes.com.
 - **Feedbackronde van 26 t/m 29 september:** afgerond en live.
 
@@ -21,6 +21,9 @@ Stand van zaken op 29 september 2026. Lees daarna eerst `CLAUDE.md` en `docs/des
 | #125, #126 | CTA-balk (pop-up rechtsonder): afgeronde hoeken (10px op de balk, 6px op de knoppen), donker zand-brons `#6E5A43` en geen binnenlijn. Deze PR's zijn in een andere sessie gemaakt. |
 | #127, #128 | Dit `HANDOFF.md`-bestand toegevoegd, plus de afspraken "altijd mergen" en "handoff in de repo" in `CLAUDE.md`. |
 | #129 | De logo-carrousel nog eens 25% langzamer (37s naar 49s). De CTA-balk kreeg melkchocolade-brons `#75563C` (was zand-brons `#6E5A43`). |
+| #130 | Deze handoff gecorrigeerd (snelheid 49s, PR-overzicht, CRLF-lijst). |
+| #131 | Veilige `npm audit fix` (Next.js 15.5.26) en `allowScripts` voor esbuild en fsevents. |
+| #132 | Upgrade naar Next.js 16, Sanity 6, next-sanity 13 en React 19.3. `npm audit`: 0 kwetsbaarheden, via `overrides` in `package.json` voor een paar verouderde pakketten diep in Sanity's CLI. `engines.node` staat op `>=22.12` (eis van Sanity 6). Het `lint`-script is weg (Next 16 heeft `next lint` geschrapt). |
 
 ## Beslissingen (staan ook in de design-doc)
 
@@ -52,6 +55,8 @@ Stand van zaken op 29 september 2026. Lees daarna eerst `CLAUDE.md` en `docs/des
 
 ## Praktische tips voor de volgende sessie
 
+- **Node.js op de Mac:** Node 24 LTS en npm 12 staan in `/usr/local/bin` (geïnstalleerd op 29 september 2026). Als een commando `npm` niet vindt, zet dan `export PATH=/usr/local/bin:$PATH` ervoor.
+- **Overrides:** haal de `overrides` in `package.json` weg zodra Sanity zelf die pakketten bijwerkt; controleer met `npm audit`.
 - **Screenshots:** het browserpaneel in de app tekent niet als het venster verborgen is. `shot.mjs` in de scratchpad van deze sessie stuurt Chrome headless aan (via het Chrome DevTools Protocol, met native WebSocket) en maakt zo screenshots op elke breedte. Het script is makkelijk opnieuw te maken:
   - Chrome starten met `--headless=new --remote-debugging-port`;
   - `Emulation.setDeviceMetricsOverride`, dan `Page.navigate`;
