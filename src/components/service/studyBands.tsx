@@ -13,8 +13,8 @@ import { EMPLOYER_LOGOS } from '../../lib/logos';
 // every page that shows client employers.
 function MarqueeTrack({ logos, reverse }: { logos: typeof EMPLOYER_LOGOS; reverse?: boolean }) {
   // Duration scales with the logo count so every track moves at the same
-  // speed as the full 18-logo row (49s).
-  const dur = `${(49 * logos.length) / EMPLOYER_LOGOS.length}s`;
+  // speed as the full 18-logo row (65s).
+  const dur = `${(65 * logos.length) / EMPLOYER_LOGOS.length}s`;
   return (
     <div className={styles.marq}>
       <div className={styles.mtrack} style={{ animationDuration: dur, animationDirection: reverse ? 'reverse' : undefined }}>

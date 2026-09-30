@@ -606,7 +606,7 @@
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marq 49s linear infinite;
+  animation: marq 65s linear infinite;
 }
 @keyframes marq {
   to {
@@ -2699,10 +2699,14 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.qBand > *:hover img {
-  transform: scale(1.06);
+/* No photo zoom on hover (client, 30 Sept 2026): on a clickable photo only
+   the caption lifts a few pixels, for a slight sense of depth. */
+.qBand .qCap {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.qBand > a:hover .qCap {
+  transform: translateY(-4px);
 }
 
 /* two-cell comparison rows (gate, abroad/here) */
@@ -3361,9 +3365,9 @@
    the curves nest. Nothing else in the Quiet System is rounded. */
 .ctapop {
   border-radius: 10px;
-  /* milk-chocolate bronze: warmer than the espresso it replaced (client
-     call, Sept 2026); no border or inner line */
-  background: #75563c;
+  /* full dark chocolate: warmer than espresso, deeper than the earlier
+     milk-chocolate #75563C (client, 30 Sept 2026); no border or inner line */
+  background: #5c3b24;
 }
 .ctapop .ctapopNote {
   color: var(--on-dark);

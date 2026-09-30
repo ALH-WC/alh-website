@@ -153,7 +153,18 @@
   color: var(--ink);
 }
 
+/* The logo sits highest; the three side columns start level with the
+   tagline (client, 30 Sept 2026). 64px = the 31px logo's line box (49.6px)
+   plus its 14px margin, plus the tagline's extra half-leading. */
+.grid > div:nth-child(n + 2) {
+  padding-top: 64px;
+}
+
 @media (max-width: 1100px) {
+  /* two columns: only Navigate shares the brand block's row */
+  .grid > div:nth-child(n + 3) {
+    padding-top: 0;
+  }
   .inner {
     padding: 42px 40px 26px;
   }
@@ -169,6 +180,9 @@
   .grid {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+  .grid > div:nth-child(n + 2) {
+    padding-top: 0;
   }
   .bottom {
     flex-direction: column;

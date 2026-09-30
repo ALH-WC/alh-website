@@ -25,6 +25,7 @@ Stand van zaken op 30 september 2026. Lees daarna eerst `CLAUDE.md` en `docs/des
 | #131 | Veilige `npm audit fix` (Next.js 15.5.26) en `allowScripts` voor esbuild en fsevents. |
 | #132, #133 | Eén Inter-maat: alle Inter-tekst op de bedrijfspagina's is 15px (body, namen, budgetregels, eyebrows, labels, links, formulierlabels, footer, de kleine Inter-tussenkopjes). Hoofdletterlabels op tracking .14em. Uitgezonderd: hero's, CTA-balk, blog. Vooraf en achteraf gemeten op productie. Gemaakt vanuit een branch op `main`, zonder lokale build (node_modules ontbrak op de Windows-pc). |
 | #134 | Upgrade naar Next.js 16, Sanity 6, next-sanity 13 en React 19.3. `npm audit`: 0 kwetsbaarheden, via `overrides` in `package.json` voor een paar verouderde pakketten diep in Sanity's CLI. `engines.node` staat op `>=22.12` (eis van Sanity 6). Het `lint`-script is weg (Next 16 heeft `next lint` geschrapt). |
+| #136 | Footer: de drie kolommen (Navigate, Company, nieuwsbrief) beginnen op dezelfde hoogte als "We help fellow expats"; het logo staat het hoogst. Logo-carrousel nog eens 25% langzamer (49s naar 65s). CTA-balk donkerder: volle chocolade `#5C3B24` (was melkchocolade `#75563C`). De fotoband op de homepage zoomt niet meer in bij hover; alleen de titel schuift 4px omhoog. |
 
 ## Beslissingen (staan ook in de design-doc)
 
@@ -32,11 +33,11 @@ Stand van zaken op 30 september 2026. Lees daarna eerst `CLAUDE.md` en `docs/des
 - **Eén H1-hoogte voor alle hero's:** wat onder de H1 staat (subtekst of knop) krijgt een vaste hoogte: 87px op desktop, 165px op telefoon. Een kortere subtekst mag de H1 nooit lager laten zakken.
 - **Logo-carrousel:**
   - kleur donker zand `#A89679` (alleen voor de carrousel, nooit voor tekst);
-  - snelheid 49s voor de volledige rij van 18 logo's;
+  - snelheid 65s voor de volledige rij van 18 logo's (30 september nog eens 25% langzamer);
   - Reddit is in het SVG-bestand zelf ingekleurd, met een wit gezichtje;
   - de homepage gebruikt de `stacked`-variant (twee rijen, in `.qRevSide`);
   - /b2b houdt de enkele rij.
-- **CTA-balk:** de enige afgeronde en de enige niet-espresso vlak in het systeem. Dat is een bewuste uitzondering, gekozen in het klantgesprek van september 2026.
+- **CTA-balk:** de enige afgeronde en de enige niet-espresso vlak in het systeem, in volle chocolade `#5C3B24`. Dat is een bewuste uitzondering, gekozen in het klantgesprek van september 2026.
 - **Eén Inter-maat (30 sept 2026):** op de bedrijfspagina's bestaat Inter alleen nog op 15px; hiërarchie komt van Mixta en van het gewicht (400/500/600). Uitzonderingen: hero's, CTA-balk, blog, en formuliervelden mogen op telefoons 16px zijn (tegen inzoomen op iOS). Staat als laatste laag in `renting.module.css` en `SiteFooter.module.css`.
 - **Afgewezen:** de "blend 3"-richting (/renting-2). Niet opnieuw voorstellen.
 
